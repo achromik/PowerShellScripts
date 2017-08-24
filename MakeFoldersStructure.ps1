@@ -17,7 +17,7 @@ Copy-Item E:\kodilla\project\gruntfile.js ".\"
 <# README.md file #>
 
 Set-Content .\README.md "# $name" 
-Add-Content .\README.md "`n`n####$desc"
+Add-Content .\README.md "`n`n#### $desc"
 
 <# package.json file #>
 
