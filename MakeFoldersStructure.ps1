@@ -1,8 +1,12 @@
-﻿param([string]$name = "", [string]$git = "PLEASE UPDATE GIT REPOSITORY", [string]$desc = "", [string]$author ="Aleksander Chromik")
+﻿param([string]$name = "", [string]$git = "PLEASE UPDATE GIT REPOSITORY", [string]$desc = "", [string]$author = "Aleksander Chromik", [string]$prefix = "achromik" )
+
+$packagePrefix = $prefix+"-";
+
 
 if ($git.LastIndexOf(".git") -eq $git.Length-4) {
     $gitUrl = $git.Substring(0,$git.Length-4)
 }
+
 
 md $name
 cd $name
@@ -22,7 +26,7 @@ Add-Content .\README.md "`n`n#### $desc"
 <# package.json file #>
 
 Set-Content .\package.json "{ "
-Add-Content .\package.json "`t`"name`": `"$name`"," 
+Add-Content .\package.json "`t`"name`": `"$packagePrefix$name`"," 
 Add-Content .\package.json "`t`"version`": `"1.0.0`","
 Add-Content .\package.json "`t`"description`": `"$desc`","
 Add-Content .\package.json "`t`"main`": `"index.js`","
