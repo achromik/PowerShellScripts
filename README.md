@@ -18,10 +18,10 @@ Info about author. This info is included in file `package.json`
 
 **`-prefix`**
 Prefix for package's name. 
-Eg.
-        `MakeFoldersStructure.ps1 -name "package_demo" -prefix "myDemo"`
 
-makes package name *`myDemo-package_demo`*
+        Eg.
+                `MakeFoldersStructure.ps1 -name "package_demo" -prefix "myDemo"`
+        makes package name *`myDemo-package_demo`*
 
 
 #### Structure of created folders
