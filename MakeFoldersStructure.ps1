@@ -8,22 +8,23 @@ if ($git.LastIndexOf(".git") -eq $git.Length-4) {
 }
 
 
-md $name
-cd $name
-$path = ".\css", ".\js", ".\sass", ".\img"
-md $path -force
+mkdir $name                                         <# create folder $name              #>   
+Set-Location $name                                  <# change directory to $name        #>
+$path = ".\css", ".\js", ".\sass", ".\img"          <# set folders structure            #>
+mkdir $path -force                                  <# make folders structure           #>
 
-Copy-Item E:\kodilla\project\.gitignore ".\"
-<# Copy-Item E:\kodilla\project\package.json ".\" #>
-Copy-Item E:\kodilla\project\gruntfile.js ".\"
+Copy-Item $PSScriptRoot\mfs_data\.gitignore ".\"
+
+Copy-Item $PSScriptRoot\mfs_data\gruntfile.js ".\"
 
 
-<# README.md file #>
+<######             make README.md file                     ######>
 
 Set-Content .\README.md "# $name" 
 Add-Content .\README.md "`n`n#### $desc"
 
-<# package.json file #>
+
+<######             make package.json file                  ######>
 
 Set-Content .\package.json "{ "
 Add-Content .\package.json "`t`"name`": `"$packagePrefix$name`"," 
@@ -60,4 +61,4 @@ Add-Content .\package.json "`t`t`"pixrem`": `"^4.0.1`""
 Add-Content .\package.json "`t`}"
 Add-Content .\package.json "}" 
 
-cd ..
+Set-Location ..
