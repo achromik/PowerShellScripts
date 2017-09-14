@@ -10,7 +10,7 @@ if ($git.LastIndexOf(".git") -eq $git.Length-4) {
 
 mkdir $name                                         <# create folder $name              #>   
 Set-Location $name                                  <# change directory to $name        #>
-$path = ".\css", ".\js", ".\sass", ".\img"          <# set folders structure            #>
+$path = ".\css", ".\js", ".\sass", ".\src"          <# set folders structure            #>
 mkdir $path -force                                  <# make folders structure           #>
 
 Copy-Item $PSScriptRoot\mfs_data\.gitignore ".\"
